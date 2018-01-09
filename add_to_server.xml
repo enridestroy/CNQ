@@ -1,0 +1,8 @@
+ <Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol"
+            maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
+            clientAuth="false"
+            keystoreFile="/opt/tomcat/.keystore" keystorePass="changeit"
+            keyAlias="tomcat"
+            ciphers="all"
+            sslEnabledProtocols="SSLv3,TLSv1,TLSv1.1,TLSv1.2"
+  />
