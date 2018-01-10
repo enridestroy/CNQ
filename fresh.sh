@@ -1,3 +1,5 @@
+#how to install tomcat and josso fast simple
+#2018-01-05 GF
 systemctl stop tomcat ; \
 sleep 5 ; \
 cd ; \
