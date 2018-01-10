@@ -19,12 +19,16 @@ cd /opt/tomcat/bin/tomcat-native-1.2.16-src/native
 make
 make install
 cd
+cp /opt/tomcat/conf/server.xml /opt/tomcat/conf/server.xml.bak
+cat > /opt/tomcat/conf/server.xml.add <<-EOM
+ <Connector port="8443" protocol="org.apache.coyote.http11.Http11AprProtocol"
+            maxThreads="1500" SSLEnabled="true" scheme="https" secure="true"
+            clientAuth="false"
+            SSLCertificateFile="${catalina.base}/conf/server.crt"
+            SSLCertificateKeyFile="${catalina.base}/conf/server.key"
+            SSLProtocol="all"
+  />
 
-#-------------------------this builds certificate if you have none---------------------------
-#self sign certificate
-openssl genrsa -des3 -out server.key 1024
-openssl req -new -key server.key -out server.csr
-cp server.key server.key.org
-openssl rsa -in server.key.org -out server.key
-openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
-keytool -import -alias tomcat -keystore /opt/tomcat/.keystore -file server.crt
+EOM
+sed -e '56 r /opt/tomcat/conf/server.xml.add' /opt/tomcat/conf/server.xml.bak > /opt/tomcat/conf/server.xml
+chown -R tomcat:tomcat /opt
