@@ -6,6 +6,7 @@ rm -R -f /josso-1* ; \
 mkdir /opt/tomcat ; \
 chown tomcat:tomcat /opt/tomcat ; \
 cd ; \
+vTOMCAT_SSL=-Djava.library.path=/usr/local/apr/lib
 vTOMCAT=7.0.82 ; \
 vREL=7 ; vMAJOR=0 ; \
 wget -nc http://www-us.apache.org/dist/tomcat/tomcat-$vREL/v$vTOMCAT/bin/apache-tomcat-$vTOMCAT.tar.gz ; \
@@ -19,7 +20,7 @@ chgrp -R tomcat bin ; \
 chgrp -R tomcat lib ; \
 chmod g+rwx bin ; \
 chmod g+r bin/* ; \
-export JAVA_HOME=/usr/lib/jvm/jre ; \
+export JAVA_HOME=/usr/lib/jvm/jre ; JAVA_HOME=/usr/lib/jvm/jre ; \
 sleep 3
 cat > /etc/systemd/system/tomcat.service <<-EOM
 [Unit]
@@ -31,7 +32,7 @@ Environment=JAVA_HOME=/usr/lib/jvm/jre
 Environment=CATALINA_PID=/opt/tomcat/temp/tomcat.pid
 Environment=CATALINA_HOME=/opt/tomcat
 Environment=CATALINA_BASE=/opt/tomcat
-Environment='CATALINA_OPTS=-Xms2048M -Xmx16384M -server -XX:+UseParallelGC'
+Environment='CATALINA_OPTS=-Xms2048M -Xmx16384M -server -XX:+UseParallelGC ${vTOMCAT_SSL}'
 Environment='JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom'
 ExecStart=/opt/tomcat/bin/startup.sh
 ExecStop=/bin/kill -15 $MAINPID
@@ -47,7 +48,7 @@ cat > /opt/tomcat/conf/tomcat-users.xml <<-EOM
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://tomcat.apache.org/xml tomcat-users.xsd"
               version="1.0">
-  <user username="tomcat" password="s3cret" roles="manager-gui,admin-gui"/>
+  <user username="tomcat" password="s3cret" roles="manager-gui,admin-gui,manager-script"/>
 </tomcat-users>
 EOM
 sleep 3 ; systemctl start tomcat.service ; systemctl enable tomcat.service ; systemctl status tomcat
