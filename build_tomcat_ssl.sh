@@ -20,7 +20,7 @@ make
 make install
 cd
 
-#-------------------------this is to test if you have no certificate---------------------------
+#-------------------------this builds certificate if you have none---------------------------
 #self sign certificate
 openssl genrsa -des3 -out server.key 1024
 openssl req -new -key server.key -out server.csr
