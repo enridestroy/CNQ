@@ -1,4 +1,4 @@
-#how to install tomcat and josso fast simple
+#how to install/reinstall fresh tomcat and josso (fast simple) for Centos 7.4+
 #2018-01-05 GF
 systemctl stop tomcat ; \
 sleep 5 ; \
