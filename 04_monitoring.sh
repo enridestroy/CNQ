@@ -1,10 +1,12 @@
+
 cd
+vTOMCAT=/opt/crowd/apache-tomcat
 wget -nc https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/javamelody/javamelody-1.49.0.zip
-unzip -o javamelody-1.49.0.zip jrobin-1.5.9.1.jar ; mv -f jrobin-1.5.9.1.jar /opt/tomcat/lib/.
-unzip -o javamelody-1.49.0.zip javamelody.jar ; mv -f javamelody.jar /opt/tomcat/lib/.
-if [[ ! -f /opt/tomcat/conf/web.xml.bak ]] ; then
-cp /opt/tomcat/conf/web.xml /opt/tomcat/conf/web.xml.bak
-cat > /opt/tomcat/conf/web.xml.add <<-EOM
+unzip -o javamelody-1.49.0.zip jrobin-1.5.9.1.jar ; mv -f jrobin-1.5.9.1.jar $vTOMCAT/lib.
+unzip -o javamelody-1.49.0.zip javamelody.jar ; mv -f javamelody.jar $vTOMCAT/lib/.
+if [[ ! -f $vTOMCAT/conf/web.xml.bak ]] ; then
+cp $vTOMCAT/conf/web.xml $vTOMCAT/conf/web.xml.bak
+cat > $vTOMCAT/conf/web.xml.add <<-EOM
 
 <filter>
         <filter-name>monitoring</filter-name>
@@ -19,5 +21,5 @@ cat > /opt/tomcat/conf/web.xml.add <<-EOM
 </listener>
 
 EOM
-sed -e '462 r /opt/tomcat/conf/web.xml.add' /opt/tomcat/conf/web.xml.bak > /opt/tomcat/conf/web.xml
+sed -e '455 r $vTOMCAT/conf/web.xml.add' $vTOMCAT/conf/web.xml.bak > $vTOMCAT/conf/web.xml
 fi
