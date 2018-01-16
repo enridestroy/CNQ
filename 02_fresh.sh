@@ -6,8 +6,10 @@ cd ; \
 rm -R -f /opt/tomcat ; \
 rm -R -f /josso-1* ; \
 mkdir /opt/tomcat ; \
-chown tomcat:tomcat /opt/tomcat ; \
+chown -R tomcat:tomcat /opt/tomcat ; \
 cd ; \
+CATALINA_HOME=/opt/tomcat
+export CATALINA_HOME
 vTOMCAT_SSL=-Djava.library.path=/usr/local/apr/lib
 vTOMCAT=7.0.82 ; \
 vREL=7 ; vMAJOR=0 ; \
