@@ -24,8 +24,8 @@ make install
 cd /opt/tomcat/conf
 cat > /opt/tomcat/conf/server.xml.add <<-EOM
  <Connector port="8443" protocol="org.apache.coyote.http11.Http11AprProtocol"
-            maxThreads="1500" SSLEnabled="true" scheme="https" secure="true"
-            clientAuth="false"
+            maxThreads="8192"
+            SSLEnabled="true" scheme="https" secure="true" clientAuth="false"
             SSLCertificateFile="${catalina.base}/conf/server.crt"
             SSLCertificateKeyFile="${catalina.base}/conf/server.key"
             SSLProtocol="all"
@@ -36,7 +36,6 @@ if [[ ! -f /opt/tomcat/conf/server.xml.bak ]] ; then
   cp /opt/tomcat/conf/server.xml /opt/tomcat/conf/server.xml.bak
   sed -e '56 r /opt/tomcat/conf/server.xml.add' /opt/tomcat/conf/server.xml.bak > /opt/tomcat/conf/server.xml
 fi
-echo 
 echo CATALINA_HOME:$CATALINA_HOME
 echo "les configuration pour activer ssl sont dans le fichier: tomcat.service"
 chown -R tomcat:tomcat /opt
