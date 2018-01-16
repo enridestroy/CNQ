@@ -1,6 +1,10 @@
 #howto install Centos 7.4 for Tomcat - fast and simple
 # 2018-01-04 GF
 #1 system
+if [[ $EUID -ne 0 ]]; then
+  echo "This script must be run as root"
+  exit
+fi
 yum install -y epel-release ; \
 yum repolist ; \
 yum update -y ; \
