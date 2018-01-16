@@ -1,5 +1,7 @@
 #how to build Tomcat 7 with SSL and APR/Native 
 # 2018-01-10 GF
+CATALINA_HOME=/opt/tomcat
+export CATALINA_HOME
 cd ; \
 yum install -y openssl-devel ; \
 yum groupinstall -y "Development Tools" ; \
@@ -34,5 +36,7 @@ if [[ ! -f server.xml.bak ]] ; then
 EOM
   sed -e '56 r /opt/tomcat/conf/server.xml.add' /opt/tomcat/conf/server.xml.bak > /opt/tomcat/conf/server.xml
 fi
+echo LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CATALINA_HOME/lib >> $CATALINA_HOME/bin/setenv.sh
+echo "export LD_LIBRARY_PATH" >> $CATALINA_HOME/bin/setenv.sh
 chown -R tomcat:tomcat /opt
 cd
