@@ -17,3 +17,4 @@ groupadd tomcat ; \
 mkdir /opt ; \
 mkdir /opt/tomcat ; \
 useradd -s /bin/nologin -g tomcat -d /opt/tomcat tomcat
+chown tomcat:tomcat /opt/tomcat
