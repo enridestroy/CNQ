@@ -9,3 +9,8 @@ wget https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/03_enable_tomcat_
 wget https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/04_monitoring.sh
 wget https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/05_init.sh
 wget https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/server.xml.new
+chmod +x *.sh
+./02_fresh.sh
+./03_enable_tomcat_ssl.sh
+./04_monitoring.sh
+./05_init.sh
