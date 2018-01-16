@@ -14,14 +14,12 @@
                enableLookups="false" redirectPort="8443" acceptCount="64"
                connectionTimeout="20000" />
 
-    <!--
     <Connector port="8443" protocol="HTTP/1.1"
                maxHttpHeaderSize="8192"
                maxThreads="8192" minSpareThreads="64" maxSpareThreads="128"
                enableLookups="false" disableUploadTimeout="true"
                acceptCount="64" scheme="https" secure="true"
                clientAuth="false" sslProtocol="TLS" />
-    -->
 
     <Connector port="8009" enableLookups="false" redirectPort="8443" protocol="AJP/1.3" />
 
