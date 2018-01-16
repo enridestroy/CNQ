@@ -7,7 +7,6 @@ yum update -y ; \
 yum upgrade ; \
 yum install -y htop nano wget curl expat-devel openssl-devel ; \
 yum groupinstall -y "Development Tools" ; \
-systemctl stop postfix ; yum remove -y postfix ; \
 systemctl stop firewalld ; systemctl disable firewalld ; \
 echo "centos1.domain.net" > /etc/hostname ; \
 cat /etc/hostname ; \
