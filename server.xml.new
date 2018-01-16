@@ -1,0 +1,43 @@
+<Server port="8005" shutdown="YIKES">
+  <GlobalNamingResources>
+    <Resource name="UserDatabase" auth="Container"
+              type="org.apache.catalina.UserDatabase"
+       description="User database that can be updated and saved"
+           factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
+          pathname="conf/tomcat-users.xml" />
+  </GlobalNamingResources>
+
+  <Service name="Catalina">
+    <Connector port="8088" protocol="HTTP/1.1"
+               maxHttpHeaderSize="8192"
+               maxThreads="8192" minSpareThreads="64" maxSpareThreads="128"
+               enableLookups="false" redirectPort="8443" acceptCount="64"
+               connectionTimeout="20000" />
+
+    <!--
+    <Connector port="8443" protocol="HTTP/1.1"
+               maxHttpHeaderSize="8192"
+               maxThreads="8192" minSpareThreads="64" maxSpareThreads="128"
+               enableLookups="false" disableUploadTimeout="true"
+               acceptCount="64" scheme="https" secure="true"
+               clientAuth="false" sslProtocol="TLS" />
+    -->
+
+    <Connector port="8009" enableLookups="false" redirectPort="8443" protocol="AJP/1.3" />
+
+    <Engine name="Catalina" defaultHost="localhost" jvmRoute="jvm1">
+
+      <Realm className="org.apache.catalina.realm.UserDatabaseRealm" resourceName="UserDatabase"/>
+
+      <Host name="localhost" appBase="webapps" unpackWARs="true" autoDeploy="true"
+            xmlValidation="false" xmlNamespaceAware="false">
+
+        <Valve className="org.apache.catalina.authenticator.SingleSignOn" />
+
+      </Host>
+
+    </Engine>
+
+  </Service>
+
+</Server>
