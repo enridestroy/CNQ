@@ -1,5 +1,5 @@
  <Connector port="8443" protocol="org.apache.coyote.http11.Http11AprProtocol"
-            maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
+            maxThreads="8192" SSLEnabled="true" scheme="https" secure="true"
             clientAuth="false"
             SSLCertificateFile="${catalina.base}/conf/server.crt"
             SSLCertificateKeyFile="${catalina.base}/conf/server.key"
