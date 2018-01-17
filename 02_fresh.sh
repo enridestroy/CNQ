@@ -1,5 +1,9 @@
 #how to install/reinstall fresh tomcat and josso (fast simple) for Centos 7.4+
 #2018-01-05 GF
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root" 
+   exit 1
+fi
 systemctl stop tomcat ; \
 sleep 5 ; \
 cd ; \
