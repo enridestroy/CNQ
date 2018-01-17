@@ -1,8 +1,4 @@
 # 2018-01-16 GF
-if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root" 
-   exit 1
-fi
 vJBOSSCORE=core.jboss.tt.cdnq.lan
 export vJBOSSCORE
 vCUSTOMLOGIN=https://authentification.tt.cdnq.lan
