@@ -25,4 +25,3 @@ echo CATALINA_HOME:$CATALINA_HOME
 echo "les configuration pour activer ssl sont dans le fichier: tomcat.service"
 chown -R tomcat:tomcat /opt
 cd
-read -n1 -r -p "Press any key to continue..." key
