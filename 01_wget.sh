@@ -4,8 +4,11 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 vJBOSSCORE=core.jboss.tt.cdnq.lan
+export vJBOSSCORE
 vCUSTOMLOGIN=https://authentification.tt.cdnq.lan
+export vCUSTOMLOGIN
 vCERTIFICATE_FILE=ax03.tt.cdnq.lan
+export vCERTIFICATE_FILE
 cd
 wget --backups=1 -q https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/02_fresh.sh
 wget --backups=1 -q https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/03_enable_tomcat_ssl.sh
