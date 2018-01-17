@@ -20,7 +20,7 @@ samples install --target /opt/tomcat --platform tc70
 exit
 whoami
 #--------------------------------------------------
-./03_enable_tomcat_ssl.sh
-./04_monitoring.sh
-./05_init.sh
+/root/03_enable_tomcat_ssl.sh ; \
+/root/04_monitoring.sh ; \
+/root/05_init.sh ; \
 echo "completed, please test."
