@@ -28,13 +28,14 @@ cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/commons-logging-1.0.4.jar /opt
 echo "copie des *.properties"
 cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/crowd.properties /opt/tomcat/lib/
 cp -f /root/catalina.properties /opt/tomcat/conf/
-echo "copie des fichiers de la batch #2"
+echo "copie du jar necessaire au captcha... old jar..."
 cp -f /home/panic/josso_cnq/im.jar /opt/tomcat/lib/
+echo "copie des fichiers dans .../lib/client/"
 mkdir /opt/tomcat/lib/client
 cp -f /home/panic/josso_cnq/ejb/client/*.jar /opt/tomcat/lib/client/
 cp -f /home/panic/josso_cnq/josso.war/WEB-INF/struts-signon.xml /opt/tomcat/webapps/josso/WEB-INF/
 mv /opt/tomcat/webapps/josso/WEB-INF/lib/commons-logging-1.0.3.jar /opt/tomcat/webapps/josso/WEB-INF/lib/commons-logging-1.0.3.jar.old
-echo "attention nous voulons copier des fichiers ... beaucoup... ici les xml"
+echo "copie des fichiers xml"
 cp -f /home/panic/josso_cnq/configs.old/*.xml /opt/tomcat/lib/
 sleep 2
 cp -f /home/panic/josso_cnq/context_fix/cnq_auth.war /opt/tomcat/webapps/cnq_auth.war
@@ -45,7 +46,7 @@ if [[ ! -f /opt/tomcat/lib/josso-gateway-web.xml.bak ]] ; then
   cp /opt/tomcat/lib/josso-gateway-web.xml /opt/tomcat/lib/josso-gateway-web.xml.bak
   sed 's/https:\/\/authentification.pp.cdnq.lan\/cnq_auth/${vCUSTOMLOGIN}\/cnq_auth/g' /opt/tomcat/lib/josso-gateway-web.xml.bak > /opt/tomcat/lib/josso-gateway-web.xml
 fi
-echo "creation du fichier de ipmappings pour les universités"
+echo "creation du fichier de ip-mappings pour les universités"
 cp -f /home/panic/josso_cnq/configs.old/message.txt /opt/tomcat/
 cp -f /home/panic/josso_cnq/configs.old/ip-mappings.properties /opt/tomcat/lib/
 echo "creation des quelques variables pour tomcat"
