@@ -42,7 +42,7 @@ cp -f /home/panic/josso_cnq/context_fix/cnq_auth.war /opt/tomcat/webapps/cnq_aut
 #wget --http-user=tomcat --http-password=s3cret "http://localhost:8080/manager/text/undeploy?path=/cnq_auth" -O -
 #wget --http-user=tomcat --http-password=s3cret "http://localhost:8080/manager/text/deploy?path=/cnq_auth&war=file:/home/panic/josso_cnq/context_fix/josso-authentication.war" -O -
 echo "josso_authentication.war est installé dans /cnq_auth"
-if [[ ! -f /opt/tomcat/lib/josso-gateway-web.xml.bak ]] ; then
+if [ ! -f /opt/tomcat/lib/josso-gateway-web.xml.bak ] ; then
   cp /opt/tomcat/lib/josso-gateway-web.xml /opt/tomcat/lib/josso-gateway-web.xml.bak
   sed -i "s/https:\/\/authentification.pp.cdnq.lan\/cnq_auth/${vCUSTOMLOGIN}\/cnq_auth/g" /opt/tomcat/lib/josso-gateway-web.xml
 fi
