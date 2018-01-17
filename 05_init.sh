@@ -44,7 +44,7 @@ cp -f /home/panic/josso_cnq/context_fix/cnq_auth.war /opt/tomcat/webapps/cnq_aut
 echo "josso_authentication.war est installé dans /cnq_auth"
 if [ ! -f /opt/tomcat/lib/josso-gateway-web.xml.bak ] ; then
   cp /opt/tomcat/lib/josso-gateway-web.xml /opt/tomcat/lib/josso-gateway-web.xml.bak
-  sed -i "s/https:\/\/authentification.pp.cdnq.lan\/cnq_auth/${vCUSTOMLOGIN}\/cnq_auth/g" /opt/tomcat/lib/josso-gateway-web.xml
+  sed -i "s@https://authentification.pp.cdnq.lan/cnq_auth@${vCUSTOMLOGIN}/cnq_auth@g" /opt/tomcat/lib/josso-gateway-web.xml
 fi
 echo "creation du fichier de ip-mappings pour les universités"
 cp -f /home/panic/josso_cnq/configs.old/message.txt /opt/tomcat/
