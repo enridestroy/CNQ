@@ -21,22 +21,8 @@ cd /opt/tomcat/bin/tomcat-native-1.2.16-src/native
 ./configure --with-apr=/usr/local/apr --with-java-home=/usr/lib/jvm/java-1.7.0-openjdk-1.7.0.161-2.6.12.0.el7_4.x86_64
 make
 make install
-cd /opt/tomcat/conf
-cat > /opt/tomcat/conf/server.xml.add <<-EOM
- <Connector port="8443" protocol="org.apache.coyote.http11.Http11AprProtocol"
-            maxThreads="8192"
-            SSLEnabled="true" scheme="https" secure="true" clientAuth="false"
-            SSLCertificateFile="${catalina.base}/conf/server.crt"
-            SSLCertificateKeyFile="${catalina.base}/conf/server.key"
-            SSLProtocol="all"
-  />
-
-EOM
-if [[ ! -f /opt/tomcat/conf/server.xml.bak ]] ; then
-  cp /opt/tomcat/conf/server.xml /opt/tomcat/conf/server.xml.bak
-  sed -e '56 r /opt/tomcat/conf/server.xml.add' /opt/tomcat/conf/server.xml.bak > /opt/tomcat/conf/server.xml
-fi
 echo CATALINA_HOME:$CATALINA_HOME
 echo "les configuration pour activer ssl sont dans le fichier: tomcat.service"
 chown -R tomcat:tomcat /opt
 cd
+read -n1 -r -p "Press any key to continue..." key
