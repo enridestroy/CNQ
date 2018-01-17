@@ -1,3 +1,7 @@
+#!/bin/bash
+# 2018-01-16 GF
+cp -f /home/panic/$vCERTIFICATE_FILE.cer /opt/tomcat/conf/server.cer
+cp -f /home/panic/$vCERTIFICATE_FILE.key /opt/tomcat/conf/server.key
 cp -f /opt/tomcat/conf/tomcat-users.xml /opt/tomcat/conf/tomcat-users.xml.old
 sed 's/manager-gui,admin-gui,manager-script/manager-gui,admin-gui/g' \
 /opt/tomcat/conf/tomcat-users.xml.old > /opt/tomcat/conf/tomcat-users.xml.new
