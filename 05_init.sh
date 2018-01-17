@@ -43,10 +43,11 @@ cp -f /home/panic/josso_cnq/context_fix/cnq_auth.war /opt/tomcat/webapps/cnq_aut
 echo "josso_authentication.war est installé dans /cnq_auth"
 if [[ ! -f /opt/tomcat/lib/josso-gateway-web.xml.bak ]] ; then
   cp /opt/tomcat/lib/josso-gateway-web.xml /opt/tomcat/lib/josso-gateway-web.xml.bak
-  sed 's/https:\/\/authentification.pp.cdnq.lan\/cnq_auth/${CUSTOMLOGIN}\/cnq_auth/g' /opt/tomcat/lib/josso-gateway-web.xml.bak > /opt/tomcat/lib/josso-gateway-web.xml
+  sed 's/https:\/\/authentification.pp.cdnq.lan\/cnq_auth/${vCUSTOMLOGIN}\/cnq_auth/g' /opt/tomcat/lib/josso-gateway-web.xml.bak > /opt/tomcat/lib/josso-gateway-web.xml
 fi
 echo "creation du fichier de ipmappings pour les universités"
-touch /opt/tomcat/lib/ip-mappings.properties
+cp -f /home/panic/josso_cnq/configs.old/message.txt /opt/tomcat/
+cp -f /home/panic/josso_cnq/configs.old/ip-mappings.properties /opt/tomcat/lib/
 echo "creation des quelques variables pour tomcat"
 if [[ ! -f /opt/tomcat/conf/context.xml.bak ]] ; then
   cp /opt/tomcat/conf/context.xml /opt/tomcat/conf/context.xml.bak
