@@ -10,22 +10,23 @@ cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/slf4j-api-1.6.0.jar /opt/tomca
 cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/slf4j-jcl-1.6.0.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
 cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/josso-crowd-authscheme-1.8.7.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
 cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/josso-crowd-identitystore-1.8.7.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
-cp /home/panic/josso_cnq/josso.war/WEB-INF/lib/google-collections-1.0.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
-cp /home/panic/josso_cnq/josso.war/WEB-INF/lib/xfire-aegis-1.2.6.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
-cp /home/panic/josso_cnq/josso.war/WEB-INF/lib/xfire-core-1.2.6.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
-cp /home/panic/josso_cnq/josso.war/WEB-INF/lib/atlassian-core-3.8.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
-cp /home/panic/josso_cnq/josso.war/WEB-INF/lib/atlassian-user-1.0.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
-cp /home/panic/josso_cnq/josso.war/WEB-INF/lib/atlassian-util-concurrent-4.0.0.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
-cp /home/panic/josso_cnq/josso.war/WEB-INF/lib/jaxb-impl-2.2.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
-cp /home/panic/josso_cnq/josso.war/WEB-INF/lib/commons-httpclient-3.0.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
-cp /home/panic/josso_cnq/josso.war/WEB-INF/lib/jdom-1.0.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
-cp /home/panic/josso_cnq/josso.war/WEB-INF/lib/jdom.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
-cp /home/panic/josso_cnq/josso.war/WEB-INF/lib/commons-logging-1.0.4.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
-echo "copie des properties"
+cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/google-collections-1.0.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
+cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/xfire-aegis-1.2.6.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
+cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/xfire-core-1.2.6.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
+cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/atlassian-core-3.8.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
+cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/atlassian-user-1.0.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
+cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/atlassian-util-concurrent-4.0.0.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
+cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/jaxb-impl-2.2.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
+cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/commons-httpclient-3.0.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
+cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/jdom-1.0.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
+cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/jdom.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
+cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/commons-logging-1.0.4.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
+echo "copie des *.properties"
 cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/crowd.properties /opt/tomcat/lib/
+cp -f /root/catalina.properties /opt/tomcat/conf/
 echo "copie des fichiers de la batch #2"
-cp /home/panic/josso/im.jar /opt/tomcat/lib/
-cp /home/panic/josso_cnq/ejb/client/*.jar /opt/tomcat/lib/client/
+cp -f /home/panic/josso/im.jar /opt/tomcat/lib/
+cp -f /home/panic/josso_cnq/ejb/client/*.jar /opt/tomcat/lib/client/
 cp -f /home/panic/josso_cnq/josso.war/WEB-INF/struts-signon.xml /opt/tomcat/webapps/josso/WEB-INF/
 mv /opt/tomcat/webapps/josso/WEB-INF/lib/commons-logging-1.0.3.jar /opt/tomcat/webapps/josso/WEB-INF/lib/commons-logging-1.0.3.jar.old
 echo "attention nous voulons copier des fichiers ... beaucoup... ici les xml"
@@ -52,3 +53,4 @@ fi
 chown -R tomcat:tomcat /opt
 systemctl stop tomcat ; sleep 2 ; systemctl start tomcat
 echo "fini, merci"
+read -n1 -r -p "Press any key to continue..." key
