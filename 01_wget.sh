@@ -6,12 +6,12 @@ fi
 vJBOSSCORE=core.jboss.tt.cdnq.lan
 vCUSTOMLOGIN=https://authentification.tt.cdnq.lan
 cd
-wget https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/02_fresh.sh
-wget https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/03_enable_tomcat_ssl.sh
-wget https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/04_monitoring.sh
-wget https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/05_init.sh
-wget https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/server.xml.new
-wget https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/catalina.properties
+wget -O https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/02_fresh.sh
+wget -O https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/03_enable_tomcat_ssl.sh
+wget -O https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/04_monitoring.sh
+wget -O https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/05_init.sh
+wget -O https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/server.xml.new
+wget -O https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/catalina.properties
 chmod +x *.sh
 ./02_fresh.sh
 gateway install --target /opt/tomcat --platform tc70
