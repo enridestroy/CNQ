@@ -1,3 +1,4 @@
+#!/bin/bash
 #how to build Tomcat 7 with SSL and APR/Native 
 # 2018-01-10 GF
 CATALINA_HOME=/opt/tomcat
