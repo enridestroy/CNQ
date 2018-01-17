@@ -32,7 +32,7 @@ mv /opt/tomcat/webapps/josso/WEB-INF/lib/commons-logging-1.0.3.jar /opt/tomcat/w
 echo "attention nous voulons copier des fichiers ... beaucoup... ici les xml"
 cp -f /home/panic/josso_cnq/configs.old/*.xml /opt/tomcat/lib/
 sleep 2
-cp -f /home/panic/josso_cnq/context_fix/josso-authentication.war /opt/tomcat/webapps/cnq_auth.war
+cp -f /home/panic/josso_cnq/context_fix/cnq_auth.war /opt/tomcat/webapps/cnq_auth.war
 #wget --http-user=tomcat --http-password=s3cret "http://localhost:8080/manager/text/undeploy?path=/cnq_auth" -O -
 #wget --http-user=tomcat --http-password=s3cret "http://localhost:8080/manager/text/deploy?path=/cnq_auth&war=file:/home/panic/josso_cnq/context_fix/josso-authentication.war" -O -
 echo "josso_authentication.war est installé dans /cnq_auth"
