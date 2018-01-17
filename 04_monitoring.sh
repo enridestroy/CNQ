@@ -1,6 +1,6 @@
-
+#!/bin/bash
 cd
-vTOMCAT=/opt/crowd/apache-tomcat
+vTOMCAT=/opt/tomcat
 wget -nc --no-check-certificate https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/javamelody/javamelody-1.49.0.zip
 unzip -o javamelody-1.49.0.zip jrobin-1.5.9.1.jar ; mv -f jrobin-1.5.9.1.jar $vTOMCAT/lib.
 unzip -o javamelody-1.49.0.zip javamelody.jar ; mv -f javamelody.jar $vTOMCAT/lib/.
