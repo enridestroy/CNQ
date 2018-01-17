@@ -34,7 +34,7 @@ echo "copie des fichiers dans .../lib/client/"
 mkdir /opt/tomcat/lib/client
 cp -f /home/panic/josso_cnq/ejb/client/*.jar /opt/tomcat/lib/client/
 cp -f /home/panic/josso_cnq/josso.war/WEB-INF/struts-signon.xml /opt/tomcat/webapps/josso/WEB-INF/
-mv /opt/tomcat/webapps/josso/WEB-INF/lib/commons-logging-1.0.3.jar /opt/tomcat/webapps/josso/WEB-INF/lib/commons-logging-1.0.3.jar.old
+rm /opt/tomcat/webapps/josso/WEB-INF/lib/commons-logging-1.0.3.jar
 echo "copie des fichiers xml"
 cp -f /home/panic/josso_cnq/configs.old/*.xml /opt/tomcat/lib/
 sleep 2
