@@ -14,6 +14,12 @@ wget https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/server.xml.new
 wget https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/catalina.properties
 chmod +x *.sh
 ./02_fresh.sh
+gateway install --target /opt/tomcat --platform tc70
+agent install --target /opt/tomcat --platform tc70
+samples install --target /opt/tomcat --platform tc70
+exit
+whoami
+#--------------------------------------------------
 ./03_enable_tomcat_ssl.sh
 ./04_monitoring.sh
 ./05_init.sh
