@@ -50,6 +50,7 @@ if [[ ! -f /opt/tomcat/conf/context.xml.bak ]] ; then
   sed '36 a <Environment name="messagesFile.path" value="\/opt\/tomcat\/message.txt" type="java.lang.String" override="false"\/>' /opt/tomcat/conf/c2.xml > /opt/tomcat/conf/c3.xml
   sed '36 a <Environment name="ipmappings.path" value="file:/\\/opt\/tomcat\/lib\/" override="false"\/>' /opt/tomcat/conf/c3.xml > /opt/tomcat/conf/context.xml
 fi
+cp -f /root/server.xml.new /opt/tomcat/conf/server.xml
 chown -R tomcat:tomcat /opt
 systemctl stop tomcat ; sleep 2 ; systemctl start tomcat
 echo "fini, merci"
