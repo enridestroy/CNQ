@@ -5,6 +5,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 vJBOSSCORE=core.jboss.tt.cdnq.lan
 vCUSTOMLOGIN=https://authentification.tt.cdnq.lan
+vCERTIFICATE_FILE=ax03.tt.cdnq.lan
 cd
 wget --backups=1 -q https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/02_fresh.sh
 wget --backups=1 -q https://raw.githubusercontent.com/guyfrancoeur/CNQ/master/03_enable_tomcat_ssl.sh
