@@ -23,3 +23,4 @@ cat > $vTOMCAT/conf/web.xml.add <<-EOM
 EOM
 sed -e '455 r ${vTOMCAT}/conf/web.xml.add' $vTOMCAT/conf/web.xml.bak > $vTOMCAT/conf/web.xml
 fi
+read -n1 -r -p "Press any key to continue..." key
