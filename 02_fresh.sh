@@ -14,7 +14,7 @@ vTOMCAT_SSL=-Djava.library.path=/usr/local/apr/lib
 vTOMCAT=7.0.82 ; \
 vREL=7 ; vMAJOR=0 ; \
 wget -nc http://www-us.apache.org/dist/tomcat/tomcat-$vREL/v$vTOMCAT/bin/apache-tomcat-$vTOMCAT.tar.gz ; \
-tar -zxvf apache-tomcat-$vTOMCAT.tar.gz -C /opt/tomcat --strip-components=1 ; \
+tar -zxf apache-tomcat-$vTOMCAT.tar.gz -C /opt/tomcat --strip-components=1 ; \
 cd /opt/tomcat ; \
 chgrp -R tomcat conf ; \
 chmod g+rwx conf ; \
@@ -61,7 +61,7 @@ vJOSSO=1.8.7 ; \
 env | grep JAVA_HOME ; \
 cd ; \
 wget -nc https://sourceforge.net/projects/josso/files/JOSSO/JOSSO-$vJOSSO/josso-$vJOSSO.tar.gz ; \
-tar -zxvf josso-$vJOSSO.tar.gz -C /
+tar -zxf josso-$vJOSSO.tar.gz -C /
 cd /josso-$vJOSSO/bin ; \
 echo gateway install --target /opt/tomcat --platform tc$vREL$vMAJOR ; \
 echo agent install --target /opt/tomcat --platform tc$vREL$vMAJOR ; \
