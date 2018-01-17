@@ -5,7 +5,6 @@ sed 's/manager-gui,admin-gui/manager-gui,admin-gui,manager-script/g' \
 /opt/tomcat/conf/tomcat-users.xml.new > /opt/tomcat/conf/tomcat-users.xml
 cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/crowd-integration-client-2.6.2.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
 cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/crowd-integration-client-rest-2.6.2.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
-cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/crowd.properties  /opt/tomcat/webapps/josso/WEB-INF/lib/
 cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/crowd-proxy-0.0.1-SNAPSHOT.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
 cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/slf4j-api-1.6.0.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
 cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/slf4j-jcl-1.6.0.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
@@ -22,12 +21,11 @@ cp /home/panic/josso_cnq/josso.war/WEB-INF/lib/commons-httpclient-3.0.jar /opt/t
 cp /home/panic/josso_cnq/josso.war/WEB-INF/lib/jdom-1.0.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
 cp /home/panic/josso_cnq/josso.war/WEB-INF/lib/jdom.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
 cp /home/panic/josso_cnq/josso.war/WEB-INF/lib/commons-logging-1.0.4.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
+echo "copie des properties"
+cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/crowd.properties /opt/tomcat/lib/
 echo "copie des fichiers de la batch #2"
 cp /home/panic/josso/im.jar /opt/tomcat/lib/
 cp /home/panic/josso_cnq/ejb/client/*.jar /opt/tomcat/lib/client/
-#common.loader=${catalina.base}/lib,${catalina.base}/lib/*.jar,${catalina.home}/lib,${catalina.home}/lib/*.jar,${catalina.hom$
-
-
 cp -f /home/panic/josso_cnq/josso.war/WEB-INF/struts-signon.xml /opt/tomcat/webapps/josso/WEB-INF/
 mv /opt/tomcat/webapps/josso/WEB-INF/lib/commons-logging-1.0.3.jar /opt/tomcat/webapps/josso/WEB-INF/lib/commons-logging-1.0.3.jar.old
 echo "attention nous voulons copier des fichiers ... beaucoup... ici les xml"
