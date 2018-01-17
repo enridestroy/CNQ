@@ -50,12 +50,12 @@ echo "creation du fichier de ip-mappings pour les universités"
 cp -f /home/panic/josso_cnq/configs.old/message.txt /opt/tomcat/
 cp -f /home/panic/josso_cnq/configs.old/ip-mappings.properties /opt/tomcat/lib/
 echo "creation des quelques variables pour tomcat"
-if [[ ! -f /opt/tomcat/conf/context.xml.bak ]] ; then
+if [ ! -f /opt/tomcat/conf/context.xml.bak ] ; then
   cp /opt/tomcat/conf/context.xml /opt/tomcat/conf/context.xml.bak
-  sed -i "34 a <Environment name=\"remoteObjectAccessor.host\" value=\"${vJBOSSCORE}" type=\"java.lang.String\" override=\"false\"\/>" /opt/tomcat/conf/context.xml
+  sed -i "34 a <Environment name=\"remoteObjectAccessor.host\" value=\"${vJBOSSCORE}\" type=\"java.lang.String\" override=\"false\"\/>" /opt/tomcat/conf/context.xml
   sed -i "34 a <Environment name=\"remoteObjectAccessor.port\" value=\"1099\" type=\"java.lang.String\" override=\"false\"\/>" /opt/tomcat/conf/context.xml
   sed -i "34 a <Environment name=\"messagesFile.path\" value=\"\/opt\/tomcat\/message.txt\" type=\"java.lang.String\" override=\"false\"\/>" /opt/tomcat/conf/context.xml
-  sed -i '34 a <Environment name="ipmappings.path" value="file:/\\/opt\/tomcat\/lib\/" override="false"\/>' /opt/tomcat/conf/context.xml
+  sed -i '34 a <Environment name="ipmappings.path" value="file:\/\/opt\/tomcat\/lib\/" override="false"\/>' /opt/tomcat/conf/context.xml
 fi
 sed -i 's/INFO/WARNING/g' /opt/tomcat/conf/logging.properties
 sed -i 's/FINE/WARNING/g' /opt/tomcat/conf/logging.properties
