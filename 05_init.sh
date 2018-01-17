@@ -25,7 +25,7 @@ echo "copie des *.properties"
 cp -f /home/panic/josso_cnq/josso.war/WEB-INF/lib/crowd.properties /opt/tomcat/lib/
 cp -f /root/catalina.properties /opt/tomcat/conf/
 echo "copie des fichiers de la batch #2"
-cp -f /home/panic/josso/im.jar /opt/tomcat/lib/
+cp -f /home/panic/josso_cnq/im.jar /opt/tomcat/lib/
 cp -f /home/panic/josso_cnq/ejb/client/*.jar /opt/tomcat/lib/client/
 cp -f /home/panic/josso_cnq/josso.war/WEB-INF/struts-signon.xml /opt/tomcat/webapps/josso/WEB-INF/
 mv /opt/tomcat/webapps/josso/WEB-INF/lib/commons-logging-1.0.3.jar /opt/tomcat/webapps/josso/WEB-INF/lib/commons-logging-1.0.3.jar.old
