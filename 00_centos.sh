@@ -13,6 +13,9 @@ yum install -y htop nano wget curl expat-devel openssl-devel ; \
 yum groupinstall -y "Development Tools" ; \
 systemctl stop firewalld ; systemctl disable firewalld ; \
 cat /etc/hostname
+echo "include /usr/share/nano/sh.nanorc" > ~/.nanorc
+echo "include /usr/share/nano/xml.nanorc" >> ~/.nanorc
+echo "include /usr/share/nano/java.nanorc" >> ~/.nanorc
 #2 java jdk
 #yum install java-1.8.0-openjdk-devel
 yum install -y java-1.7.0-openjdk-devel
