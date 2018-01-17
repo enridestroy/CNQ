@@ -37,14 +37,14 @@ cp -f /home/panic/josso_cnq/context_fix/josso-authentication.war /opt/tomcat/web
 echo "josso_authentication.war est installé dans /cnq_auth"
 if [[ ! -f /opt/tomcat/lib/josso-gateway-web.xml.bak ]] ; then
   cp /opt/tomcat/lib/josso-gateway-web.xml /opt/tomcat/lib/josso-gateway-web.xml.bak
-  sed 's/https:\/\/authentification.pp.cdnq.lan\/cnq_auth/http:\/\/ax03.pp.cdnq.lan:8080\/cnq_auth/g' /opt/tomcat/lib/josso-gateway-web.xml.bak > /opt/tomcat/lib/josso-gateway-web.xml
+  sed 's/https:\/\/authentification.pp.cdnq.lan\/cnq_auth/${CUSTOMLOGIN}\/cnq_auth/g' /opt/tomcat/lib/josso-gateway-web.xml.bak > /opt/tomcat/lib/josso-gateway-web.xml
 fi
 echo "creation du fichier de ipmappings pour les universités"
 touch /opt/tomcat/lib/ip-mappings.properties
 echo "creation des quelques variables pour tomcat"
 if [[ ! -f /opt/tomcat/conf/context.xml.bak ]] ; then
   cp /opt/tomcat/conf/context.xml /opt/tomcat/conf/context.xml.bak
-  sed '36 a <Environment name="remoteObjectAccessor.host" value="core.jboss.pp.cdnq.lan" type="java.lang.String" override="false"\/>' /opt/tomcat/conf/context.xml.bak > /opt/tomcat/conf/c1.xml
+  sed '36 a <Environment name="remoteObjectAccessor.host" value="${vJBOSSCORE}" type="java.lang.String" override="false"\/>' /opt/tomcat/conf/context.xml.bak > /opt/tomcat/conf/c1.xml
   sed '36 a <Environment name="remoteObjectAccessor.port" value="1099" type="java.lang.String" override="false"\/>' /opt/tomcat/conf/c1.xml > /opt/tomcat/conf/c2.xml
   sed '36 a <Environment name="messagesFile.path" value="\/opt\/tomcat\/message.txt" type="java.lang.String" override="false"\/>' /opt/tomcat/conf/c2.xml > /opt/tomcat/conf/c3.xml
   sed '36 a <Environment name="ipmappings.path" value="file:/\\/opt\/tomcat\/lib\/" override="false"\/>' /opt/tomcat/conf/c3.xml > /opt/tomcat/conf/context.xml
