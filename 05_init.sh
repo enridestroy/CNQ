@@ -24,12 +24,15 @@ cp /home/panic/josso_cnq/josso.war/WEB-INF/lib/jdom.jar /opt/tomcat/webapps/joss
 cp /home/panic/josso_cnq/josso.war/WEB-INF/lib/commons-logging-1.0.4.jar /opt/tomcat/webapps/josso/WEB-INF/lib/
 echo "copie des fichiers de la batch #2"
 cp /home/panic/josso/im.jar /opt/tomcat/lib/
-cp /home/panic/josso_cnq/ejb/client/* /opt/tomcat/lib/client/
+cp /home/panic/josso_cnq/ejb/client/*.jar /opt/tomcat/lib/client/
+#common.loader=${catalina.base}/lib,${catalina.base}/lib/*.jar,${catalina.home}/lib,${catalina.home}/lib/*.jar,${catalina.hom$
+
+
 cp -f /home/panic/josso_cnq/josso.war/WEB-INF/struts-signon.xml /opt/tomcat/webapps/josso/WEB-INF/
 mv /opt/tomcat/webapps/josso/WEB-INF/lib/commons-logging-1.0.3.jar /opt/tomcat/webapps/josso/WEB-INF/lib/commons-logging-1.0.3.jar.old
-echo "attention nous voulons copier des fichiers ... beaucoup... pourquoi?"
-cp -f /home/panic/josso_cnq/configs.old/* /opt/tomcat/lib/
-sleep 20
+echo "attention nous voulons copier des fichiers ... beaucoup... ici les xml"
+cp -f /home/panic/josso_cnq/configs.old/*.xml /opt/tomcat/lib/
+sleep 2
 cp -f /home/panic/josso_cnq/context_fix/josso-authentication.war /opt/tomcat/webapps/cnq_auth.war
 #wget --http-user=tomcat --http-password=s3cret "http://localhost:8080/manager/text/undeploy?path=/cnq_auth" -O -
 #wget --http-user=tomcat --http-password=s3cret "http://localhost:8080/manager/text/deploy?path=/cnq_auth&war=file:/home/panic/josso_cnq/context_fix/josso-authentication.war" -O -
